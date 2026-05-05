@@ -135,7 +135,7 @@ wrangler deploy
 | `post_link` | url | 指定 IG 貼文連結；留空 = 全帳號 fallback |
 | `keywords` | rich_text | 關鍵字，逗號或換行分隔（例：`+1, info, link`） |
 | `dm_message` | rich_text | DM 內文（≤ 1000 字） |
-| `priority` | number | 多條同時命中時，數字大的優先 |
+| `priority` | number | 多條同時符合時，數字大的優先 |
 | `trigger_count` | number | 機器人自動寫回 +1 |
 | `last_triggered` | date | 機器人自動寫回 |
 | `notes` | rich_text | 自由備忘 |
@@ -150,7 +150,7 @@ worker 收到 webhook 後分兩 pass（同帳號內）：
 
 **Pass 1 — specific 比對**：規則的 `post_link` **有填值** → 必須符合當前留言所在貼文的 shortcode 才會觸發。
 
-**Pass 2 — fallback 比對**：規則的 `post_link` **留空** → 全帳號通用，任何貼文都吃。Pass 1 沒中才會走到這裡。
+**Pass 2 — fallback 比對**：規則的 `post_link` **留空** → 全帳號通用，任何貼文都吃。Pass 1 沒有任何規則符合才會走到這裡。
 
 **例**：
 
@@ -159,9 +159,9 @@ worker 收到 webhook 後分兩 pass（同帳號內）：
 
 | 留言發生地 | 留言內容 | 觸發 |
 |---|---|---|
-| ABC123 那篇 | `discount` | A（specific 命中） |
+| ABC123 那篇 | `discount` | A（specific 比對成功） |
 | ABC123 那篇 | `info` | B（specific 不含「info」，落到 fallback） |
-| 其他貼文 | `discount` | 不觸發（specific 對不上、fallback 不含「discount」） |
+| 其他貼文 | `discount` | 不觸發（specific 沒符合、fallback 不含「discount」） |
 | 其他貼文 | `info` | B（fallback 任何貼文都吃） |
 
 ---
