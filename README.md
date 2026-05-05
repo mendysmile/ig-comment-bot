@@ -317,11 +317,14 @@ curl "https://<你的 worker URL>/run-refresh?secret=$VERIFY_TOKEN"
 
 ## License
 
-MIT — 自由 fork、自由商用、保留版權聲明即可。
+License：[PolyForm Noncommercial 1.0.0](https://polyformproject.org/licenses/noncommercial/1.0.0/) · 個人使用、學習、分享自由；禁止商業用途
+作者：Mandy（[@mendysmile](https://github.com/mendysmile)）— [Adalyn](https://www.instagram.com/adalyn.career/)
+
+註：本 repo 在 2026-05-05 之前為 MIT License，已 fork 或正在使用 MIT 版本的人不受影響，仍可依 MIT 條款沿用對應 commit；新 commit 起改用 PolyForm Noncommercial 1.0.0。
 
 ## Contributing
 
-這是個人 portfolio 專案，主力放在自用 + 諮詢服務上，**不主動收 PR、也不負責回應 issue**。歡迎自由 fork 改成你自己的版本（MIT License），或在 fork 上加你想要的功能（例如 Threads / Facebook 留言支援、規則網頁 GUI、多語系 Privacy Policy template）。如果你的 fork 寫得不錯，歡迎 ping 我 — 我可能會在 README 加個 Inspired Forks 區塊互推。
+這是個人 portfolio 專案，主力放在自用 + 諮詢服務上，**不主動收 PR、也不負責回應 issue**。歡迎自由 fork 改成你自己的版本（PolyForm Noncommercial 1.0.0，限非商業用途），或在 fork 上加你想要的功能（例如 Threads / Facebook 留言支援、規則網頁 GUI、多語系 Privacy Policy template）。如果你的 fork 寫得不錯，歡迎 ping 我 — 我可能會在 README 加個 Inspired Forks 區塊互推。
 
 ---
 
