@@ -279,13 +279,13 @@ curl "https://<你的 worker URL>/run-refresh?secret=$VERIFY_TOKEN"
 
 兩個方案（含部署到你自己的 Cloudflare 帳號 + 30 天 email 問題解答），依需求選一：
 
-### 陽春版 — NTD 4,800
+### 陽春版
 
 - 留言觸發 → 直接送文字 + 連結 DM（一步驟）
 - 設定前 5 條觸發規則（含 button template、specific/fallback）
 - 適合：剛起步、不擔心機器人批量取得資源的個人帳號
 
-### 完整版 — NTD 6,800
+### 完整版
 
 - 陽春版全部功能 +
 - **兩步驟確認機制**：用戶點按鈕進確認頁才看到資源連結，HMAC 簽章 + 24h 效期，防自動化程式批量取得資源
@@ -295,7 +295,6 @@ curl "https://<你的 worker URL>/run-refresh?secret=$VERIFY_TOKEN"
 
 - 部署到你**自己的** Cloudflare 帳號（你保有完全控制權）
 - 部署後 30 天內 email 問題解答（範圍：部署 + 規則設定）
-- vs ManyChat Pro $15-29 USD/月（NTD 475-920）：陽春版 6 個月、完整版 8.5 個月內回本
 
 ### 不適合
 
@@ -312,7 +311,7 @@ curl "https://<你的 worker URL>/run-refresh?secret=$VERIFY_TOKEN"
 - Meta API 政策變動造成的服務中斷（不在保障範圍，亦不退款）
 - 部署完成並交付後不提供退款
 
-**洽談**：[填申請表](https://tally.so/r/xX9zqy)（24-48 小時內回覆）
+**洽談**：[填申請表看完整方案 + 定價](https://tally.so/r/xX9zqy)（24-48 小時內回覆）
 
 ---
 
