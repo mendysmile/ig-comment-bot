@@ -275,7 +275,7 @@ curl "https://<你的 worker URL>/run-refresh?secret=$VERIFY_TOKEN"
 
 ---
 
-## 不想自己摸？代部署服務
+## 不想自己摸索？代部署服務
 
 兩個方案（含部署到你自己的 Cloudflare 帳號 + 30 天 email 問題解答），依需求選一：
 
