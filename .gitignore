@@ -1,0 +1,24 @@
+# Cloudflare wrangler 實際設定（含個人 KV namespace ID）
+wrangler.toml
+
+# 本地 secret 備份（永遠不 commit）
+.env
+.env.local
+.env.*.local
+
+# Cloudflare wrangler 暫存
+.wrangler/
+.dev.vars
+
+# Node
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo

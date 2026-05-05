@@ -1,0 +1,40 @@
+name = "ig-comment-bot"
+main = "index.js"
+compatibility_date = "2024-01-01"
+
+# Cloudflare Workers 部署設定範本。
+# 複製這檔案成 wrangler.toml,把 <PLACEHOLDERS> 換成你的值。
+# wrangler.toml 已被 .gitignore,不會被 commit 進 repo。
+
+# 非敏感值放這裡。APP_ID 是 Instagram 子應用 ID,不是父 Meta App ID。
+# (新版 Instagram Login API 結構是「父 Meta App」+「IG 子應用」,各有獨立的 App ID/Secret。
+#  webhook 簽章用 IG 子應用的 App Secret 簽,不是父 App 的。詳見 README 雷 6。)
+[vars]
+APP_ID = "<YOUR_INSTAGRAM_SUB_APP_ID>"
+
+# 敏感值用 wrangler secret put 指令設定 (詳見 README Quick Start):
+# APP_SECRET             → Meta 後台 IG 子應用的「Instagram 應用程式密鑰」(不是父 App 的!)
+# VERIFY_TOKEN           → 自訂隨機字串,用於 Meta webhook 驗證 + 內部 admin 端點驗證
+# NOTION_TOKEN           → Notion integration token (讀規則 DB)
+# NOTION_RULES_DB_ID     → Notion 規則 DB 的 data source ID (詳見 README "Notion DB schema")
+# IG_ACCOUNTS            → JSON array,每個 IG 帳號一筆,例:
+#                           [{"username":"your.handle","ig_id":"17841...","token_secret":"ACCOUNT1_TOKEN"}]
+# <ACCOUNT_TOKEN_SECRETS> → 每筆 IG_ACCOUNTS.token_secret 對應一個 secret 名稱,
+#                           裡面放對應帳號的 IG long-lived access token,例:
+#                           wrangler secret put ACCOUNT1_TOKEN
+# PRIVACY_OWNER_NAME     → /privacy 頁顯示的營運者姓名
+# PRIVACY_OWNER_EMAIL    → /privacy 頁顯示的聯絡 email
+# PRIVACY_HANDLES        → /privacy 頁顯示的 IG 帳號 (逗號分隔,例 "@account1, @account2")
+# PRIVACY_LAST_UPDATED   → /privacy 頁顯示的最後更新日期 (例 "2026-05-05")
+
+# KV namespace - 規則 cache(60s TTL) + token 儲存(永久,cron 自動 refresh)
+# 建立指令: wrangler kv:namespace create RULES_CACHE
+# 把回傳的 id 貼到下方
+[[kv_namespaces]]
+binding = "RULES_CACHE"
+id = "<YOUR_KV_NAMESPACE_ID>"
+
+# Cron Trigger — 每月 1 號 UTC 0:00 (KST 09:00) 自動 refresh access token
+# Meta IG Long-lived Token 60 天過期,每月刷一次留充足緩衝
+[triggers]
+crons = ["0 0 1 * *"]
