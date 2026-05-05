@@ -328,7 +328,8 @@ MIT — 自由 fork、自由商用、保留版權聲明即可。
 
 ## Related Articles
 
+- [LinkedIn case study（中文版，by Mandy）— 文組怎麼用 Cloudflare Workers 取代月費 SaaS](https://www.linkedin.com/posts/mendy-chiang-27a8971b_%E6%96%87%E7%B5%84%E5%90%8C%E5%AD%B8%E5%B8%B8%E5%95%8F%E6%88%91%E6%80%8E%E9%BA%BC%E8%87%AA%E5%AD%B8%E9%9B%B2%E7%AB%AF%E6%88%91%E6%83%B3%E8%AA%AA%E7%9A%84%E6%98%AF%E6%89%BE%E4%BD%A0%E7%94%9F%E6%B4%BB%E4%B8%AD%E7%9A%84%E5%B0%8F%E7%97%9B%E9%BB%9E%E7%94%A8%E9%9B%B2%E7%AB%AF%E6%9C%8D%E5%8B%99%E5%8E%BB%E8%A7%A3%E6%B1%BA%E5%AE%83-activity-7457280298851115008-UvJe)（2026-05-05 上線）
+
 待補：
-- LinkedIn case study（中文版，by Mandy）— 文組怎麼用 Cloudflare Workers 取代月費 SaaS
 - LinkedIn case study（英文版，by Mendy）— webhook signature debugging deep dive
 - Adalyn 部落格技術文 — 自架取代月費 SaaS 全紀錄
