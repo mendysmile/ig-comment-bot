@@ -289,7 +289,7 @@ curl "https://<你的 worker URL>/run-refresh?secret=$VERIFY_TOKEN"
 - 想要 GUI 後台（這專案的後台是 Notion，要自己編輯）
 - 想要替別人的 IG 帳號代操作（這需要過 Meta App Review，本服務只處理你自己的帳號）
 
-**洽談**：[Adalyn 諮詢頁](https://...)（連結待補）
+**洽談**：[填申請表](https://tally.so/r/xX9zqy)（24-48 小時內回覆）
 
 ---
 
