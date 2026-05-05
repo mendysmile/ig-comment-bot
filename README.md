@@ -10,14 +10,17 @@
 
 | 項目 | ManyChat (Pro) | ig-comment-bot (本專案) |
 |---|---|---|
-| 月費 | $15 USD/帳號（~NTD 800）| 0 NTD（Cloudflare 免費額度足夠） |
+| 月費 | $15-29 USD/月（NTD 475-920，per workspace 不限帳號）| 0 NTD（Cloudflare 免費額度足夠） |
+| 計費單位 | 按 contacts 階梯（500 / 1k / 10k...）| 不計流量（免費額度 100K req/day 足夠個人帳號） |
 | 控制權 | SaaS 廠商 | 你自己的 Cloudflare 帳號 |
 | 規則 UI | ManyChat 後台 | Notion DB（你已熟悉的工作環境） |
 | 客製化 | 受限於 ManyChat 功能 | 完全自由（直接改 worker 程式碼） |
 | Meta App Review | 走 ManyChat 的 App | 自架自用不需要 |
 | 部署門檻 | 註冊即用 | 需要一次性設定（~30 分鐘） |
 
-每月 800 × 12 = **年省 9,600 NTD/帳號**。雙帳號年省 19,200 NTD。
+ManyChat $15/月起跳（500 contacts）、實務上多數商家 $29/月（1,000+ contacts）。**年省 NTD 5,700 起、平均 ~NTD 11,000**（按 2026-05-04 匯率 1 USD = 31.65 TWD 換算）。
+
+> **定價來源**：[ManyChat Pricing](https://manychat.com/pricing) / [Featurebase ManyChat Pricing 2026](https://www.featurebase.app/blog/manychat-pricing)。匯率即時參考 [Trading Economics — Taiwanese Dollar](https://tradingeconomics.com/taiwan/currency)。Pricing 跟匯率都會浮動，自己算之前先確認當下值。
 
 ---
 
@@ -71,9 +74,11 @@ wrangler kv:namespace create RULES_CACHE
 ```
 把回傳的 `id` 貼進 `wrangler.toml` 的 `[[kv_namespaces]]` 區塊。
 
-### Step 3：複製 Notion DB template
+### Step 3：在 Notion 建規則 DB
 
-打開 Notion template（連結待補 — duplicate 後得到自己的 DB），記下 data source ID。Schema 詳見下方「Notion DB schema」section。
+到 Notion 開新 DB（任何 page 底下都行），按下方「Notion DB schema」section 列出的 16 個欄位（英文欄位名 + 對應型別）建好。建完後把 data source ID 抓出來（Notion DB URL `https://www.notion.so/<workspace>/<DB-ID>?v=<view-id>` 中的 `<DB-ID>`）。
+
+> 沒提供現成 template — schema 簡單，自己建一次就熟了，也方便依需求增減欄位。
 
 ### Step 4：設 secrets
 
@@ -120,7 +125,7 @@ wrangler deploy
 
 ## Notion DB schema
 
-複製 [Notion template](https://...)（連結待補）後得到一個有 16 個欄位的 DB：
+在 Notion 開新 DB，建以下 16 個欄位（欄位名要完全一致，worker 用名字 lookup）：
 
 | 欄位 | 型別 | 說明 |
 |---|---|---|
@@ -277,7 +282,7 @@ curl "https://<你的 worker URL>/run-refresh?secret=$VERIFY_TOKEN"
 - 部署到你自己的 Cloudflare 帳號（你保有完全控制權）
 - 設定前 5 條規則（含 button template、specific/fallback）
 - 30 天 email 答疑
-- vs ManyChat 年費 9,600，**8.5 個月內回本**
+- vs ManyChat $15-29 USD/月（NTD 475-920），**8-15 個月內回本**（取決於你 ManyChat 用的 plan 階梯）
 
 這個服務不適合：
 - 想要規模化的企業客戶（建議直接用 ManyChat）
@@ -294,10 +299,7 @@ MIT — 自由 fork、自由商用、保留版權聲明即可。
 
 ## Contributing
 
-PR 歡迎，特別是：
-- 其他平台支援（Threads、Facebook 留言）
-- 規則 GUI（streamlit / next.js mini-app）
-- 多語系 Privacy Policy template
+這是個人 portfolio 專案，主力放在自用 + 諮詢服務上，**不主動收 PR、也不負責回應 issue**。歡迎自由 fork 改成你自己的版本（MIT License），或在 fork 上加你想要的功能（例如 Threads / Facebook 留言支援、規則網頁 GUI、多語系 Privacy Policy template）。如果你的 fork 寫得不錯，歡迎 ping 我 — 我可能會在 README 加個 Inspired Forks 區塊互推。
 
 ---
 
