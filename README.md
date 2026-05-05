@@ -148,9 +148,9 @@ wrangler deploy
 
 worker 收到 webhook 後分兩 pass（同帳號內）：
 
-**Pass 1 — specific 匹配**：規則的 `post_link` **有填值** → 必須匹配當前留言所在貼文的 shortcode 才觸發。
+**Pass 1 — specific 比對**：規則的 `post_link` **有填值** → 必須符合當前留言所在貼文的 shortcode 才會觸發。
 
-**Pass 2 — fallback 匹配**：規則的 `post_link` **留空** → 全帳號通用，任何貼文都吃。Pass 1 沒中才會走到這裡。
+**Pass 2 — fallback 比對**：規則的 `post_link` **留空** → 全帳號通用，任何貼文都吃。Pass 1 沒中才會走到這裡。
 
 **例**：
 
@@ -277,11 +277,11 @@ curl "https://<你的 worker URL>/run-refresh?secret=$VERIFY_TOKEN"
 
 ## 不想自己摸？代部署服務
 
-我提供「ig-comment-bot 部署 + 30 天答疑」加值服務 — NTD 6,800 一次性，含：
+我提供「ig-comment-bot 部署 + 30 天 email 諮詢」加值服務 — NTD 6,800 一次性，含：
 
 - 部署到你自己的 Cloudflare 帳號（你保有完全控制權）
 - 設定前 5 條規則（含 button template、specific/fallback）
-- 30 天 email 答疑
+- 30 天 email 諮詢回覆（部署後使用問題）
 - vs ManyChat $15-29 USD/月（NTD 475-920），**8-15 個月內回本**（取決於你 ManyChat 用的 plan 階梯）
 
 這個服務不適合：
@@ -308,4 +308,4 @@ MIT — 自由 fork、自由商用、保留版權聲明即可。
 待補：
 - LinkedIn case study（中文版，by Mandy）— 文組怎麼用 Cloudflare Workers 取代月費 SaaS
 - LinkedIn case study（英文版，by Mendy）— webhook signature debugging deep dive
-- Adalyn 部落格技術文 — 我如何省下每月 1,600 元
+- Adalyn 部落格技術文 — 自架取代月費 SaaS 全紀錄
