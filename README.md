@@ -1,6 +1,8 @@
 # ig-comment-bot
 
 > **Self-hosted Instagram comment-to-DM bot.** When followers comment on your IG post with a configured keyword, the bot automatically replies with a private DM (with optional buttons). Built on Cloudflare Workers (free tier 100K req/day) + Notion as the rules backend. Replaces ManyChat/Chatfuel at ~$0/month.
+>
+> 📖 For an English deep-dive on the trickiest debug (webhook signature verification), see [this LinkedIn post](https://www.linkedin.com/posts/mendy-chiang-27a8971b_non-tech-friends-keep-asking-me-how-to-self-teach-share-7457570640598945792-j6FJ). The full README below is in Chinese.
 
 > **自架 IG 留言關鍵字自動私訊機器人。** 觀眾在你 IG 貼文留言含預設關鍵字（例如「+1」「資料」），系統自動發私訊把資料連結送過去。整套用 Cloudflare Workers + Notion DB 自架，月費接近 0 元（免費額度 100K req/day），可省下 ManyChat / Chatfuel 等 SaaS 訂閱費。
 
@@ -331,7 +333,7 @@ License：[PolyForm Noncommercial 1.0.0](https://polyformproject.org/licenses/no
 ## Related Articles
 
 - [文組怎麼用 Cloudflare Workers 取代月費 SaaS](https://www.linkedin.com/posts/mendy-chiang-27a8971b_%E6%96%87%E7%B5%84%E5%90%8C%E5%AD%B8%E5%B8%B8%E5%95%8F%E6%88%91%E6%80%8E%E9%BA%BC%E8%87%AA%E5%AD%B8%E9%9B%B2%E7%AB%AF%E6%88%91%E6%83%B3%E8%AA%AA%E7%9A%84%E6%98%AF%E6%89%BE%E4%BD%A0%E7%94%9F%E6%B4%BB%E4%B8%AD%E7%9A%84%E5%B0%8F%E7%97%9B%E9%BB%9E%E7%94%A8%E9%9B%B2%E7%AB%AF%E6%9C%8D%E5%8B%99%E5%8E%BB%E8%A7%A3%E6%B1%BA%E5%AE%83-activity-7457280298851115008-UvJe)（LinkedIn，2026-05-05）
+- [Non-tech friends keep asking me how to self-teach cloud — webhook signature debugging deep dive](https://www.linkedin.com/posts/mendy-chiang-27a8971b_non-tech-friends-keep-asking-me-how-to-self-teach-share-7457570640598945792-j6FJ)（LinkedIn 英文版，2026-05-05）
 
 待補：
-- webhook signature debugging deep dive（LinkedIn 英文版）
 - Adalyn 部落格技術文 — 自架取代月費 SaaS 全紀錄
